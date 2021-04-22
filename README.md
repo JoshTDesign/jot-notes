@@ -6,6 +6,9 @@ Jot Note Taker is a browser-based tool for keeping a library of notes for yourse
 
 Link to deployed project
 [Jot Note Taker](https://jt-note-taker.herokuapp.com/)
+Link to gitHub repository
+[gitHub Repo](https://github.com/JoshTDesign/jot-notes)
+
 
 ## Table of contents
 
