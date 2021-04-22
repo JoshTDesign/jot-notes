@@ -3,10 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#licence)
 
 Jot Note Taker is a browser-based tool for keeping a library of notes for yourself.
+
+Link to deployed project
+[Jot Note Taker](https://jt-note-taker.herokuapp.com/)
+
 ## Table of contents
 
-## Link to deployed project
-[Jot Note Taker](https://jt-note-taker.herokuapp.com/)
 
 ***
 
