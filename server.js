@@ -3,14 +3,16 @@ const express = require("express");
 const app = express();
 const fs = require('fs');
 const uniqid = require('uniqid');
-// const Note = require("/models/Note");
-
-const PORT = process.env.PORT || 3000
+const util = require("util");
 let newNote = {};
 let updateArray;
+
+const readFilePromise = util.promisify(fs.readFile);
+const writeFilePromise = util.promisify(fs.writeFile);
+const PORT = process.env.PORT || 3000
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static("public"))
 
 class Note {
@@ -20,11 +22,8 @@ class Note {
     }
 }
 
-const util = require("util");
 
 
-const readFilePromise = util.promisify(fs.readFile);
-const writeFilePromise = util.promisify(fs.writeFile);
 
 const readFile = async ()=>{
     let data = await readFilePromise("./db/db.json", "utf8" )
@@ -45,16 +44,16 @@ app.get("/api/notes", async(req,res)=>{
     res.json(data)
 })
 
+// 
 app.delete("/api/notes/:id", async(req,res)=>{
     const delNote = req.params.id;
     let noteArray = await readFile();
     console.log('note deleted');
-    // res.send('worked' + delNote);
     for (let i = 0; i < noteArray.length; i++) {
         if (delNote === noteArray[i].id) {
             noteArray.splice(i,1);
             let data = await writeFile(noteArray);
-            res.json(data);
+            res.json('deleted note ' + data);
         }
     }
 })
