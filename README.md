@@ -5,6 +5,9 @@
 Jot Note Taker is a browser-based tool for keeping a library of notes for yourself.
 ## Table of contents
 
+##Link to deployed project
+[Jot Note Taker](https://jt-note-taker.herokuapp.com/)
+
 ***
 
 [Features](#features)  
@@ -21,7 +24,6 @@ This project takes in new notes from the user, saves the the data via POST reque
 
 ### Challenges encountered  
 This project was a great way to practice creating a server back-end to keep persistent information for the user. Notes saved to this note taker program are saved server-side and can be recalled any time. The challenge here was in passing data back and forth from the front-end html/javascript to the server and serving data back.
-
 
 
 ### How to contribute  
