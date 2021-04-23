@@ -1,3 +1,4 @@
+//required packages
 const { RSA_NO_PADDING } = require("constants");
 const express = require("express");
 const app = express();
@@ -15,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"))
 
+
+//note object definition
 class Note {
     constructor(title,text){
         this.title = title;
@@ -23,14 +26,14 @@ class Note {
 }
 
 
-
-
+//function for reading json file
 const readFile = async ()=>{
     let data = await readFilePromise("./db/db.json", "utf8" )
     return JSON.parse(data);
 }
 
 
+//function for writing new content to json file
 const writeFile = async (data)=>{
     data = JSON.stringify(data, null, 2);
     await writeFilePromise("./db/db.json", data)
@@ -40,11 +43,11 @@ const writeFile = async (data)=>{
 //get noteArray data and populate the note page 
 app.get("/api/notes", async(req,res)=>{
     let data = await readFile()
-    console.log(data)
     res.json(data)
 })
 
-// 
+
+//handles delete request from site
 app.delete("/api/notes/:id", async(req,res)=>{
     const delNote = req.params.id;
     let noteArray = await readFile();
@@ -58,6 +61,8 @@ app.delete("/api/notes/:id", async(req,res)=>{
     }
 })
 
+
+//handles post request from site
 app.post("/api/notes", async (req,res)=>{
     const newNote = req.body;
     newNote.id = uniqid.time();
@@ -68,17 +73,20 @@ app.post("/api/notes", async (req,res)=>{
     res.send(newNote);
 })
 
+
+//handles routing for notes.html
 app.get("/notes", (req,res)=>{
     res.sendFile(__dirname + "/public/notes.html");
-    // res.send('/note.html should be here')
 })
 
+
+// handles routing for index page
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/public/index.html");
 })
 
 
-
+//listener command for server
 app.listen(PORT,()=>{
     console.log("listening on port " + PORT)
 });
