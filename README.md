@@ -28,8 +28,10 @@ Link to gitHub repository
 
 This project takes in new notes from the user, saves the the data via POST requests. The data is saved as a json file in the server. Also the page is refreshed by fetching the data back via GET request. Tasks can be viewed and deleted. New notes can always be added.
 
-<img src="https://drive.google.com/file/d/1JKQ3v0ip63xocLJXOEtD4khmECvg0eLY/view?usp=sharing" width="300px">
-<img src="https://drive.google.com/file/d/1JKzaZeI6MEuqirDTWwGraKV16oT8_SpK/view?usp=sharing" width="300px">
+![note-taker-screencap](https://user-images.githubusercontent.com/78992027/115800345-4482b680-a38f-11eb-8735-18bfffa0a861.PNG =300x)
+
+![note-taker-screencap2](https://user-images.githubusercontent.com/78992027/115800354-49e00100-a38f-11eb-889a-6e98484f2ce0.PNG =300x)
+
 
 ### Challenges encountered  
 This project was a great way to practice creating a server back-end to keep persistent information for the user. Notes saved to this note taker program are saved server-side and can be recalled any time. The challenge here was in passing data back and forth from the front-end html/javascript to the server and serving data back.
